@@ -40,26 +40,26 @@
 .decorated-zone::before {
   content: '';
   position: absolute;
+  display: inline-block;
   width: 25px; 
   height: 25px;
   border-block-start: 1px solid var(--accent-color);
   border-inline-end: 1px solid var(--accent-color);
   inset-inline-end: 0;
   inset-block-start: 0;
-  display: inline-block;
-
+  
 } 
 
 .decorated-zone::after {
   content: '';
   position: absolute;
+  display: inline-block;
   width: 25px; 
   height: 25px;
   border-block-end: 1px solid var(--accent-color);
   border-inline-start: 1px solid var(--accent-color);
   inset-inline-start: 0;
   inset-block-end: 40px;
-  display: inline-block;
 }
 
 .rec-decor {
