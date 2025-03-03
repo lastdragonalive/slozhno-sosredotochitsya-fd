@@ -47,7 +47,6 @@
   border-inline-end: 1px solid var(--accent-color);
   inset-inline-end: 0;
   inset-block-start: 0;
-  
 } 
 
 .decorated-zone::after {
@@ -233,7 +232,6 @@ li:not(:last-child) {
 
 .link:hover {
   border-bottom: 1px solid var(--text-color);
-  
 }
 
 .link:focus-visible {
@@ -313,6 +311,7 @@ li:not(:last-child) {
   }
 }
 
+/*  ГАЛЕРЕЯ  */
 @media (min-width: 1000px) {
   .cards-what {
     display: grid;
