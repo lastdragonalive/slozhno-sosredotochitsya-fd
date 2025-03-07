@@ -3,10 +3,10 @@
   и их переопределение под различные устройства
 */
 :root {
-  --main-font: 'IBM Plex mono';
+  --main-font: 'IBM Plex mono', 'Monospace';
   --font-weight: 700;
   --font-weight-regular: 400;
-  --bg-color: #000028;
+  --background-color: #000028;
   --title-color: #DB00FF;
   --accent-color: #ff0070;
   --shadow-color: #ff0070;
@@ -14,8 +14,18 @@
   --subtitle-accent-color: #ff0070;
   --inverse-color: #000028;
   --text-color: #F1B2CE;
-  --sec-ttl-color: #FF0070;
+  --section-title-color: #FF0070;
   --element-color: #ff0070;
-  --element-color-op: rgba(255, 0, 112, 0.4);
-  --bg-image: url(../images/cover-image-dark.png);
+  --element-color-opacity: rgba(255, 0, 112, 0.4);
+  --background-image: url(../images/cover-image-dark.png);
+  --padding: 10px;
+  --corner-position: 10px;
+  --rec-position: 39px;
+}
+@media (min-width: 768px) {
+  :root {
+    --padding: 20px;
+    --corner-position: 20px;
+    --rec-position: 49px;
+  }
 }

@@ -2,24 +2,13 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  background-image: var(--bg-image);
+  background-image: var(--background-image);
+  background-color: var(--background-color);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  font-family: var(--main-font);
+  font-family: var(--main-font), monospace;
   font-size: 18px;
-}
-
-@media (width >= 375px) {
-  .page {
-    padding: 10px;
-  }
-}
-
-@media (width >= 768px) {
-  .page {
-    padding: 20px;
-  }
 }
 
 .header {
@@ -29,7 +18,7 @@
   min-block-size: 668px;
   grid-template-rows: 1fr min-content 1fr;
   align-items: start;
-  padding-block-end: 40px;
+  padding: var(--padding);
 }
 
 .decorated-zone {
@@ -43,11 +32,11 @@
   display: inline-block;
   width: 25px; 
   height: 25px;
-  border-block-start: 1px solid var(--accent-color);
-  border-inline-end: 1px solid var(--accent-color);
-  inset-inline-end: 0;
-  inset-block-start: 0;
-} 
+  border-block-end: 1px solid var(--element-color);
+  border-inline-start: 1px solid var(--element-color);
+  left: var(--corner-position);
+  bottom: var(--corner-position);
+}
 
 .decorated-zone::after {
   content: '';
@@ -55,10 +44,11 @@
   display: inline-block;
   width: 25px; 
   height: 25px;
-  border-block-end: 1px solid var(--accent-color);
-  border-inline-start: 1px solid var(--accent-color);
-  inset-inline-start: 0;
-  inset-block-end: 40px;
+  border-block-start: 1px solid var(--element-color);
+  border-inline-end: 1px solid var(--element-color);
+  top: var(--corner-position);
+  right: var(--corner-position);
+  justify-self: end;
 }
 
 .rec-decor {
@@ -69,8 +59,8 @@
   text-align: center;
   color: var(--accent-color);
   justify-self: flex-end;
-  inset-inline-end: 28px;
-  inset-block-start: 0;
+  inset-inline-end: var(--rec-position);
+  inset-block-start: var(--padding);
   line-height: 25px;
 }
 
@@ -113,7 +103,7 @@ li:not(:last-child) {
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid var(--element-color-op);
+  border: 1px solid var(--element-color-opacity);
 }
 
 .header__theme-menu-button:focus-visible {
@@ -123,6 +113,7 @@ li:not(:last-child) {
 
 .header__theme-menu-button_active {
   border: 1px solid var(--element-color);
+  pointer-events: none;
 }
 
 @media (width >= 1024px) {
@@ -194,7 +185,10 @@ li:not(:last-child) {
 }
 
 /* СТИЛИ ОСНОВНОЙ ЧАСТИ */
-
+.main {
+  padding-inline-start: var(--padding);
+  padding-inline-end: var(--padding);
+}
 .card__title {
   font-family: var(--main-font), sans-serif;
   color: var(--subtitle-text-color);
@@ -204,7 +198,7 @@ li:not(:last-child) {
 }
 
 .section__title {
-  color: var(--sec-ttl-color);
+  color: var(--section-title-color);
   font-size: 18px;
   line-height: 23.4px;
 }
@@ -227,7 +221,8 @@ li:not(:last-child) {
 /*   ССЫЛКИ   */ 
 .link {
   display: inline-block;
-  text-shadow: 2px 1px var(--accent-color);
+  text-shadow: 2px 2px var(--accent-color);
+  text-decoration: none;
 }
 
 .link:hover {
@@ -256,13 +251,13 @@ li:not(:last-child) {
     padding-block-start: 50px;
   }
 
-  .section-why {
-    padding-block-start: 10px;
+  .section-type-one {
+    padding-block-start: 40px;
   }
 
-  .cards-why,
-  .cards-what,
-  .cards-how {
+  .cards-type-one,
+  .cards-type-two,
+  .cards-type-three {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -274,51 +269,49 @@ li:not(:last-child) {
     padding-block-start: 80px;
   }
 
-  .section-why {
-    padding-block-start: 40px;
+  .section-type-one {
+    padding-block-start: 60px;
   }
 
   .content-section {
     display: grid;
-
     grid-template-columns: 1fr 2fr;
     gap: 20px;
   }
 
   @media (width: 768px) and (width < 1024px) {
-  .section-why {
+  .section-type-one {
     column-gap: 35px;
   }
 
-  .section-how {
+  .section-type-three {
     grid-template-columns: 1fr 1.9fr;
   }
 }
 
-  .cards-why {
+  .cards-type-one {
     grid-column: 2/4;
   }
 
-  .cards-what {
+  .cards-type-two {
     grid-column: 1/4;
   }
 
-  .cards-how {
+  .cards-type-three {
     grid-column: 2/4;
   }
 
-  .cards-why,
-  .cards-what,
-  .cards-how {
+  .cards-type-one,
+  .cards-type-two,
+  .cards-type-three {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
 }
 
-/*  ГАЛЕРЕЯ  */
 @media (min-width: 1000px) {
-  .cards-what {
+  .cards-type-two {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
@@ -331,12 +324,13 @@ li:not(:last-child) {
   object-fit: cover;
 }
 
+/*  ГАЛЕРЕЯ  */
 @media (max-width: 500px) {
 .section-gallery__wrapper {
   display: grid;
   gap: 10px;
   padding-block-start: 10px;
-  padding-block-end: 35px;
+  padding-block-end: 42px;
 }
 }
 
@@ -346,7 +340,7 @@ li:not(:last-child) {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     padding-block-start: 20px;
-    padding-block-end: 60px;
+    padding-block-end: 58px;
   }
 
   .img__sunset {
@@ -380,21 +374,11 @@ li:not(:last-child) {
   min-block-size: 668px;
   display: grid;
   position: relative;
+  padding: var(--padding);
 }
 
 .footer__title {
   text-shadow: 2px 2px 0 var(--shadow-color);
   align-self: center;
   justify-self: center;
-}
-
-.footer.footer.decorated-zone::before {
-  inset-inline-end: 0;
-  inset-block-start: 18px;
-}
-
-
-.footer.footer.decorated-zone::after {
-  inset-inline-start: 0;
-  inset-block-end: 25px;
 }
