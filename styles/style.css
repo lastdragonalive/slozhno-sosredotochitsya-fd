@@ -254,9 +254,9 @@ li:not(:last-child) {
     padding-block-start: 40px;
   }
 
-  .cards-two-columns,
-  .cards-one-or-three-columns,
-  .cards-two-columns-h3 {
+  .section-why .cards-list,
+  .section-what .cards-list,
+  .section-how .cards-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -288,21 +288,21 @@ li:not(:last-child) {
   }
 }
 
-  .cards-two-columns {
+  .section-why .cards-list {
     grid-column: 2/4;
   }
 
-  .cards-one-or-three-columns {
+  .section-what .cards-list {
     grid-column: 1/4;
   }
 
-  .cards-two-columns-h3 {
+  .section-how .cards-list {
     grid-column: 2/4;
   }
 
-  .cards-two-columns,
-  .cards-one-or-three-columns,
-  .cards-two-columns-h3 {
+  .section-why .cards-list,
+  .section-what .cards-list,
+  .section-how .cards-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -310,7 +310,7 @@ li:not(:last-child) {
 }
 
 @media (min-width: 1000px) {
-  .cards-one-or-three-columns {
+  .section-what .cards-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
